@@ -1,0 +1,28 @@
+{
+  "name": "reorg",
+  "version": "1.0.0",
+  "description": "Test utils for reorgs in Ethereum",
+  "main": "lib/index.js",
+  "files": [
+    "lib/*.js"
+  ],
+  "scripts": {
+    "start": "concurrently -p \"[{name}]\" -n \"node-1,node-2\" -c \"green.bold,blue.bold\" \"INDEX=1 scripts/start.sh\" \"INDEX=2 scripts/start.sh\"",
+    "clean": "scripts/clean.sh",
+    "contract:compile": "solc --overwrite --bin --abi -o contracts/ contracts/Sample.sol",
+    "test": "jest --testTimeout 60000"
+  },
+  "keywords": [],
+  "author": "Santiago Palladino <spalladino@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^5.2.0",
+    "ethers": "^4.0.47"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.9.3"
+  }
+}
